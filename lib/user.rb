@@ -18,14 +18,6 @@ class User
     @follows << Follow.new(self, author)
   end
 
-  def authors
-    @follows.sort_by(&:created_at).reverse.map(&:author)
-  end
-
-  def upvotes
-    @upvotes.sort_by(&:created_at).reverse.map(&:book)
-  end
-
   def feed
     [@follows, @upvotes].flatten.sort_by(&:created_at).reverse.map(&extract_item)
   end

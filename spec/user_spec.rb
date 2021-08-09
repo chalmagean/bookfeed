@@ -19,26 +19,6 @@ RSpec.describe User do
     end
   end
 
-  describe "#upvotes" do
-    it "returns the associated upvotes" do
-      b1 = instance_double(Book)
-      user.upvote(b1)
-      b2 = instance_double(Book)
-      user.upvote(b2)
-      expect(user.upvotes).to eq([b2, b1])
-    end
-  end
-
-  describe "#authors" do
-    it "returns the associated authors sorted by follow date" do
-      a1 = instance_double(Author)
-      user.follow(a1)
-      a2 = instance_double(Author)
-      user.follow(a2)
-      expect(user.authors).to eq([a2, a1])
-    end
-  end
-
   describe "#feed" do
     it "returns a list of upvoted books and followed authors sorted by follow date" do
       a1 = instance_double(Author)
